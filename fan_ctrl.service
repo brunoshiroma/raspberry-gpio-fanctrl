@@ -1,0 +1,13 @@
+[Unit]
+Description=FAN Ctrl GPIO
+DefaultDependencies=false
+
+[Service]
+Type=forking
+PIDFile=/run/fanctrl.pid
+ExecStart=/opt/custom_scripts/fan_ctrl.py start
+ExecStop=/opt/custom_scripts/fan_ctrl.py stop
+Restart=no
+
+[Install]
+WantedBy=sysinit.target
